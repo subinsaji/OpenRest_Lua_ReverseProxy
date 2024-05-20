@@ -1,0 +1,7 @@
+{
+    "name": "openresty",
+    "dockerFile": "../Dockerfile",
+    "forwardPorts": [80],
+    "runArgs": ["--pod=mypod"]
+
+}
