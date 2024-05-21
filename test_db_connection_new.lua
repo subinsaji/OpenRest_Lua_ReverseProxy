@@ -1,7 +1,7 @@
 local mdb = require "resty.libmariadb"
 local ctx = mdb.mysql_init()
 local res, err = mdb.mysql_real_connect2(ctx, "127.0.0.1",
-    "root", "pass", "ispyb", 0, nil, 0)
+    "root", "pass", "ispyb", 3306, nil, 0)
 if err ~= nil then
     ngx.log(ngx.ERR, "mysql_real_connect2 failed: ", err)
     return
