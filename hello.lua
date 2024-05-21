@@ -1,5 +1,3 @@
-print("hello world!")
-
 local mysql = require "resty.mysql";
             local db, err = mysql:new()
             if not db then
