@@ -1,3 +1,5 @@
+-- /workspaces/openresty/test_db_connection_new.lua
+
 local mdb = require "resty.libmariadb"
 local ctx = mdb.mysql_init()
 local res, err = mdb.mysql_real_connect2(ctx, "127.0.0.1",
