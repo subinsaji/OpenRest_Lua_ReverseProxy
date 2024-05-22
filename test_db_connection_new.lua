@@ -1,5 +1,3 @@
--- /workspaces/openresty/test_db_connection_new.lua
-
 local mdb = require "resty.libmariadb"
 local ctx = mdb.mysql_init()
 local res, err = mdb.mysql_real_connect2(ctx, "127.0.0.1",
@@ -9,20 +7,20 @@ if err ~= nil then
     return
 end
 
-ok, err = mdb.mysql_query(ctx, "SELECT * FROM BLSampleType;")
-if not ok then
-    ngx.log(ngx.ERR, "mysql_query error: ", err)
-    return
-end
+-- ok, err = mdb.mysql_query(ctx, "SELECT * FROM BLSampleType;")
+-- if not ok then
+--     ngx.log(ngx.ERR, "mysql_query error: ", err)
+--     return
+-- end
 
-local result, err = mdb.mysql_store_result(ctx)
-if not result then
-    ngx.log(ngx.ERR, "mysql_store_result error: ", err)
-    return
-end
+-- local result, err = mdb.mysql_store_result(ctx)
+-- if not result then
+--     ngx.log(ngx.ERR, "mysql_store_result error: ", err)
+--     return
+-- end
 
-local num_fields = mdb.mysql_num_fields(result)
-ngx.say("num fields: ", num_fields)
+-- local num_fields = mdb.mysql_num_fields(result)
+-- ngx.say("num fields: ", num_fields)
 
 while(true)
 do
