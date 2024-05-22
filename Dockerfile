@@ -1,4 +1,5 @@
 FROM openresty/openresty:jammy
-RUN apt-get update
-RUN apt-get install nano
-RUN apt install git-all
+RUN \
+    apt-get update && \
+    apt-get install && nano &&\
+    apt install git-all 
