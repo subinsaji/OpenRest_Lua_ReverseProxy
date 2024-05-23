@@ -15,8 +15,6 @@ local ok, err, errcode, sqlstate = db:connect{
     user = "root",
     password = "pass",
     charset = "utf8",
-
-
 }
 
 if not ok then
@@ -24,17 +22,18 @@ if not ok then
     return
 end
 
-result, err, errcode, sqlstate = db:query("SELECT 1;")
+local result, err, errcode, sqlstate = db:query("SELECT 1;")
+if result then
+    ngx.say("Result: ", cjson.encode(result))
+end 
+
 if not result then
     ngx.say("MySQL error: ", err, ". ", "Result: ", result, ", SQL State: ", sqlstate)
         return
 end
 
-
 ngx.say("connected to mysql. ", "SQL State: ", sqlstate )
 
-
-ngx.say("result: ", cjson.encode(result))
-
+-- ngx.say("result: ", cjson.encode(result))
 
 db:close()
